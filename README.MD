@@ -1,21 +1,22 @@
-# ImInstant Command Line Interface
+![Header](./img/github-header-image.png.png)
 
-Welcome to **ImInstant**, a versatile and user-friendly command-line interface for managing and automating tasks on Windows systems. This project supports a modular command structure, autocomplete functionality, and colorful, intuitive output.
-
----
-
-## 🌟 Features
-
-- **Modular Commands:** Each command is stored as a separate Python file, making it easy to extend functionality.
-- **Autocomplete:** Tab-completion for all available commands.
-- **Stylish Interface:** Colorful output and a sleek welcome screen using Unicode.
-- **Cross-Platform Compatibility:** Designed for Windows but expandable for other systems.
+Welcome to **ImInstant**, a powerful and intuitive command-line interface for managing and automating tasks. Designed with versatility and ease of use in mind, this project combines modularity, auto-completion, and a stylish interface to enhance your productivity.
 
 ---
 
-## 🚀 Getting Started
+# ✨ Key Features
 
-### Prerequisites
+- **Modular Commands:** Each command is implemented as a separate Python file, simplifying extension and maintenance.
+- **Autocomplete:** Tab-completion for seamless command execution.
+- **Interactive Interface:** Modern, colorful, and user-friendly terminal output.
+- **Cross-Platform Support:** Built for Windows with expandability for Linux and macOS.
+- **Customizable Modules:** Easy to add or modify commands to fit your needs.
+
+---
+
+# 🚀 Getting Started
+
+## Prerequisites
 
 1. **Python 3.8+**
    - Download and install Python from [python.org](https://www.python.org/).
@@ -24,7 +25,7 @@ Welcome to **ImInstant**, a versatile and user-friendly command-line interface f
 2. **Git** (optional but recommended)
    - Download and install Git from [git-scm.com](https://git-scm.com/).
 
-### Clone the Repository
+## Clone the Repository
 
 ```bash
 # Clone using Git
@@ -32,7 +33,7 @@ git clone https://github.com/your-username/iminstant.git
 cd iminstant
 ```
 
-### Create and Activate Virtual Environment
+## Create and Activate Virtual Environment
 
 ```bash
 # Create a virtual environment
@@ -46,17 +47,21 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-### Install Dependencies
+## Install Dependencies
 
 ```bash
+# Update PIP
+python -m pip install --upgrade pip
+
+# Install Requirements
 pip install -r requirements.txt
 ```
 
 ---
 
-## 💻 Usage
+# 💻 Usage
 
-### Start the Program
+## Start the Program
 
 1. Launch the program:
    ```bash
@@ -75,15 +80,15 @@ pip install -r requirements.txt
 
 3. Autocomplete is available using the `TAB` key.
 
-### Example Session
+## Example Session
 
 ```plaintext
-┌──────────────────────────────────────────────────┐
-│ Welcome to ImInstant Command Line Interface      │
-├──────────────────────────────────────────────────┤
-│ Type 'help' to see available commands.           │
-│ Type 'exit' to leave the console.                │
-└──────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────┐
+│ Welcome to ImInstant Command Line Interface               │
+├───────────────────────────────────────────────────────────┤
+│ Type 'help' to see available commands.                   │
+│ Type 'exit' to leave the console.                        │
+└───────────────────────────────────────────────────────────┘
 
 iminstant> help
 Available commands:
@@ -101,26 +106,27 @@ Exiting ImInstant. Goodbye!
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
 ```plaintext
 iminstant/
 ├── commands/
 │   ├── __init__.py       # Command folder initializer
-│   ├── install.py        # Example command: install software
-│   ├── help.py           # Displays all available commands
-│   ├── exit.py           # Exits the console
+│   ├── install.py        # Command: install software
+│   ├── help.py           # Command: display all commands
+│   ├── exit.py           # Command: exit the console
+│   └── ....              #
 ├── completer.py          # Autocomplete functionality
-├── main.py               # Main entry point for the application
+├── main.py               # Main entry point
 ├── requirements.txt      # Required dependencies
-├── README.md             # Documentation for the project
+└── README.md             # Documentation
 ```
 
 ---
 
-## 🔧 Extending ImInstant
+# 🔧 Extending ImInstant
 
-### Adding a New Command
+## Adding a New Command
 
 1. **Create a New Command File:**
    Add a new `.py` file in the `commands/` directory. The file name becomes the command name.
@@ -150,22 +156,22 @@ iminstant/
 
 ---
 
-## 📅 Planned Features
+# 🔜 Planned Features
 
 1. **Dynamic Argument Parsing:** Add support for flags and options, e.g., `install firefox --silent`.
 2. **Command Logging:** Maintain a history of executed commands and their output.
 3. **Cross-Platform Enhancements:** Extend compatibility to Linux and macOS.
 4. **Custom Themes:** Allow users to customize the appearance of the console interface.
 5. **Plugin System:** Enable external plugins for greater extensibility.
-6. **Integrated Update Checker:** Notify users when new updates are available for ImInstant or installed software.
-7. **Remote Command Execution:** Allow execution of commands on remote systems via SSH.
-8. **Task Scheduling:** Add functionality to schedule commands to run at specific times.
-9. **Dependency Management:** Automatically handle and resolve software dependencies during installation.
+6. **Integrated Update Checker:** Notify users when new updates are available for ImInstant or installed software.   
+7. **Remote Command Execution:** Execute commands on remote systems via SSH.
+8. **Task Scheduling:** Schedule commands to run at specific times.
+9. **Dependency Management:** Automatically handle software dependencies during installation.
 10. **Command Aliases:** Let users define shortcuts for frequently used commands.
 
 ---
 
-## 🤝 Contributing
+# 🤝 Contributing
 
 We welcome contributions! Please follow these steps:
 
@@ -176,13 +182,13 @@ We welcome contributions! Please follow these steps:
 
 ---
 
-## 📜 License
+# 📓 License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
 
 ---
 
-## 📧 Contact
+# 📧 Contact
 
 For support or questions, please contact:
 
@@ -191,5 +197,5 @@ For support or questions, please contact:
 
 ---
 
-Start using **ImInstant** today and simplify your command-line tasks effortlessly!
+Start using **ImInstant** today and take command of your tasks effortlessly!
 

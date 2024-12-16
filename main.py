@@ -74,10 +74,12 @@ def print_welcome_screen():
 
 
 def main():
-    check_for_updates()
 
     load_commands()
     print_welcome_screen()
+
+    
+    check_for_updates()
 
     # Register default command completer
     completer.set_default_completer(lambda text: [cmd for cmd in commands.keys() if cmd.startswith(text)])
