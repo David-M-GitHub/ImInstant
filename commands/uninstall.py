@@ -2,6 +2,9 @@ import os
 import subprocess
 from colorama import Fore
 
+description = "Uninstalls a given application using Winget."
+usage = "uninstall <app_name>"
+
 PROGRAMS = {}
 
 def run(args):

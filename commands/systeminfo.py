@@ -2,6 +2,9 @@ import platform
 import os
 from colorama import Fore
 
+description = "Displays detailed system information."
+usage = "systeminfo"
+
 def run(args):
     """
     Displays system information.

@@ -73,10 +73,10 @@ pip install -r requirements.txt
    - `install <software>`: Installs software via Winget.
    - `exit`: Exits the ImInstant console.
    - `uninstall <software>`: Uninstalls specified software using Winget.
-   - `list_apps`: Lists all installed applications on your system.
-   - `system_info`: Displays detailed system information.
+   - `systeminfo`: Displays detailed system information.
    - `clear`: Clears the console screen.
-   - `update`: Updates all applications to the latest version using Winget.
+   - `updateall`: Updates all applications to the latest version using Winget.
+   - `and more...`: See at `help`
 
 3. Autocomplete is available using the `TAB` key.
 
@@ -86,8 +86,8 @@ pip install -r requirements.txt
 ┌───────────────────────────────────────────────────────────┐
 │ Welcome to ImInstant Command Line Interface               │
 ├───────────────────────────────────────────────────────────┤
-│ Type 'help' to see available commands.                   │
-│ Type 'exit' to leave the console.                        │
+│ Type 'help' to see available commands.                    │
+│ Type 'exit' to leave the console.                         │
 └───────────────────────────────────────────────────────────┘
 
 iminstant> help
@@ -140,11 +140,20 @@ iminstant/
    ```python
    from colorama import Fore
 
+   description = "Example Description."
+   usage = "example"
+
    def run(args):
        """
        Example command: Displays system status.
        """
        print(f"{Fore.GREEN}System is running smoothly!")
+   
+   def complete(text):
+      """
+      Auto-completion for the 'example' command.
+      """
+      return []
    ```
 
 3. **Run the Program:**
@@ -163,7 +172,7 @@ iminstant/
 3. **Cross-Platform Enhancements:** Extend compatibility to Linux and macOS.
 4. **Custom Themes:** Allow users to customize the appearance of the console interface.
 5. **Plugin System:** Enable external plugins for greater extensibility.
-6. **Integrated Update Checker:** Notify users when new updates are available for ImInstant or installed software.   
+6. **Integrated Update Checker:** Notify users when new updates are available for ImInstant or installed software. ✅ 
 7. **Remote Command Execution:** Execute commands on remote systems via SSH.
 8. **Task Scheduling:** Schedule commands to run at specific times.
 9. **Dependency Management:** Automatically handle software dependencies during installation.

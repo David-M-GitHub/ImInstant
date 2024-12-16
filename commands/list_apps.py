@@ -1,6 +1,9 @@
 import os
 from colorama import Fore
 
+description = "Lists all installed applications on the system using Winget."
+usage = "list_apps"
+
 def run(args):
     """
     Lists all installed applications on the system using Winget.

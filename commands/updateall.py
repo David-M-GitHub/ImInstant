@@ -1,6 +1,9 @@
 import os
 from colorama import Fore
 
+description = "Updates all applications using Winget."
+usage = "updateall"
+
 def run(args):
     """
     Updates all applications using Winget.

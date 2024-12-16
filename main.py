@@ -2,7 +2,7 @@ import os
 import importlib
 from completer import Completer
 import requests
-import time
+import sys
 from version import CURRENT_VERSION, UPDATE_URL
 from colorama import init, Fore, Style
 
@@ -13,7 +13,7 @@ COMMAND_DIR = "commands"
 commands = {}
 completer = Completer()
 
-
+sys.stdout = open(sys.stdout.fileno(), 'w', encoding='utf-8', buffering=1)
 
 def check_for_updates():
     """

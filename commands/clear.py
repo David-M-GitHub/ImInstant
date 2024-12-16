@@ -1,5 +1,8 @@
 import os
 
+description = "Clears the console screen."
+usage = "clear"
+
 def run(args):
     """
     Clears the console screen.

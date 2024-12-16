@@ -1,6 +1,9 @@
 import os
 from colorama import Fore
 
+description = "Installs the specified software using Winget."
+usage = "install <software_name>"
+
 # Dictionary of simple names mapped to Winget IDs
 PROGRAMS = {
     # Browsers

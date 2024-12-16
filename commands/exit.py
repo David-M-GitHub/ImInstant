@@ -1,5 +1,8 @@
 from colorama import Fore
 
+description = "Exits the ImInstant console."
+usage = "exit"
+
 def run(args):
     """
     Exits the ImInstant console.
