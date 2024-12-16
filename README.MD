@@ -67,6 +67,11 @@ pip install -r requirements.txt
    - `help`: Displays a list of available commands.
    - `install <software>`: Installs software via Winget.
    - `exit`: Exits the ImInstant console.
+   - `uninstall <software>`: Uninstalls specified software using Winget.
+   - `list_apps`: Lists all installed applications on your system.
+   - `system_info`: Displays detailed system information.
+   - `clear`: Clears the console screen.
+   - `update`: Updates all applications to the latest version using Winget.
 
 3. Autocomplete is available using the `TAB` key.
 
@@ -152,6 +157,11 @@ iminstant/
 3. **Cross-Platform Enhancements:** Extend compatibility to Linux and macOS.
 4. **Custom Themes:** Allow users to customize the appearance of the console interface.
 5. **Plugin System:** Enable external plugins for greater extensibility.
+6. **Integrated Update Checker:** Notify users when new updates are available for ImInstant or installed software.
+7. **Remote Command Execution:** Allow execution of commands on remote systems via SSH.
+8. **Task Scheduling:** Add functionality to schedule commands to run at specific times.
+9. **Dependency Management:** Automatically handle and resolve software dependencies during installation.
+10. **Command Aliases:** Let users define shortcuts for frequently used commands.
 
 ---
 

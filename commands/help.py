@@ -11,3 +11,9 @@ def run(args):
             print(f"  - {command}")
     else:
         print(f"{Fore.RED}No commands available.")
+
+def complete(text):
+    """
+    Auto-completion for the 'help' command.
+    """
+    return []

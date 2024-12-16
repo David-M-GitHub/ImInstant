@@ -1,6 +1,6 @@
 import os
 import importlib
-from completer import completer
+from completer import Completer
 from colorama import init, Fore, Style
 
 # Initialize colorama for colored output
@@ -8,10 +8,12 @@ init(autoreset=True)
 
 COMMAND_DIR = "commands"
 commands = {}
+completer = Completer()
 
 def load_commands():
     """
     Dynamically loads all commands from the 'commands' folder.
+    Registers their autocomplete functions if available.
     """
     global commands
     for filename in os.listdir(COMMAND_DIR):
@@ -19,6 +21,10 @@ def load_commands():
             command_name = filename[:-3]
             module = importlib.import_module(f"{COMMAND_DIR}.{command_name}")
             commands[command_name] = module
+
+            # Check if the module defines a `complete` function for auto-completion
+            if hasattr(module, "complete"):
+                completer.register_completer(command_name, module.complete)
 
 def print_welcome_screen():
     """
@@ -35,8 +41,9 @@ def main():
     load_commands()
     print_welcome_screen()
 
-    # Enable autocomplete for commands
-    completer(commands.keys())
+    # Register default command completer
+    completer.set_default_completer(lambda text: [cmd for cmd in commands.keys() if cmd.startswith(text)])
+    completer.enable()
 
     while True:
         try:
