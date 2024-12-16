@@ -1,4 +1,4 @@
-![Header](./img/github-header-image.png.png)
+![ImInstant](./img/github-header-image.png)
 
 Welcome to **ImInstant**, a powerful and intuitive command-line interface for managing and automating tasks. Designed with versatility and ease of use in mind, this project combines modularity, auto-completion, and a stylish interface to enhance your productivity.
 
