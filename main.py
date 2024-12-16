@@ -2,6 +2,7 @@ import os
 import importlib
 from completer import Completer
 import requests
+import time
 from version import CURRENT_VERSION, UPDATE_URL
 from colorama import init, Fore, Style
 
@@ -55,12 +56,23 @@ def print_welcome_screen():
     """
     Prints the welcome screen with a stylish Unicode design.
     """
-    print(f"{Fore.CYAN}┌{'─'*50}┐")
-    print(f"{Fore.CYAN}│ {Style.BRIGHT}Welcome to ImInstant Command Line Interface{Style.RESET_ALL} {Fore.CYAN}│")
-    print(f"{Fore.CYAN}├{'─'*50}┤")
-    print(f"{Fore.CYAN}│ {Fore.YELLOW}Type 'help' to see available commands.{Style.RESET_ALL} {Fore.CYAN}    │")
-    print(f"{Fore.CYAN}│ {Fore.YELLOW}Type 'exit' to leave the console.{Style.RESET_ALL} {Fore.CYAN}         │")
-    print(f"{Fore.CYAN}└{'─'*50}┘")
+    os.system('cls' if os.name == 'nt' else 'clear')  # Clear terminal screen
+
+    welcome_screen = (
+        "\n"
+        f"{Fore.CYAN}┌{'─'*50}┐\n"
+        f"{Fore.CYAN}│ {Style.BRIGHT}Welcome to ImInstant Command Line Interface{Style.RESET_ALL} {Fore.CYAN}     │\n"
+        f"{Fore.CYAN}├{'─'*50}┤\n"
+        f"{Fore.CYAN}│ {Fore.YELLOW}Type 'help' to see available commands.{Style.RESET_ALL} {Fore.CYAN}          │\n"
+        f"{Fore.CYAN}│ {Fore.YELLOW}Type 'exit' to leave the console.{Style.RESET_ALL} {Fore.CYAN}               │\n"
+        f"{Fore.CYAN}├{'─'*50}┤\n"
+        f"{Fore.CYAN}│ {Fore.MAGENTA}Current Version: {CURRENT_VERSION}{Style.RESET_ALL} {Fore.CYAN}                         │\n"
+        f"{Fore.CYAN}│ {Fore.GREEN}Stay productive and have fun!{Style.RESET_ALL} {Fore.CYAN}                   │\n"
+        f"{Fore.CYAN}└{'─'*50}┘"
+    )
+
+    print(welcome_screen)
+
 
 def main():
     check_for_updates()
