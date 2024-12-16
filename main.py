@@ -1,6 +1,8 @@
 import os
 import importlib
 from completer import Completer
+import requests
+from version import CURRENT_VERSION, UPDATE_URL
 from colorama import init, Fore, Style
 
 # Initialize colorama for colored output
@@ -9,6 +11,29 @@ init(autoreset=True)
 COMMAND_DIR = "commands"
 commands = {}
 completer = Completer()
+
+
+
+def check_for_updates():
+    """
+    Checks if a new version of ImInstant is available.
+    """
+    print(f"{Fore.YELLOW}Checking for updates...{Fore.RESET}")
+    try:
+        response = requests.get(UPDATE_URL, timeout=5)
+        if response.status_code == 200:
+            latest_version = response.text.strip()
+            if latest_version != CURRENT_VERSION:
+                print(f"{Fore.GREEN}A new version of ImInstant is available: {latest_version}{Fore.RESET}")
+                print(f"{Fore.YELLOW}You are currently using version {CURRENT_VERSION}.{Fore.RESET}")
+                print(f"{Fore.CYAN}Please update ImInstant to enjoy the latest features and improvements.{Fore.RESET}")
+            else:
+                print(f"{Fore.GREEN}You are using the latest version of ImInstant ({CURRENT_VERSION}).{Fore.RESET}")
+        else:
+            print(f"{Fore.RED}Failed to check for updates. Server returned status code {response.status_code}.{Fore.RESET}")
+    except requests.RequestException as e:
+        print(f"{Fore.RED}Could not check for updates: {e}{Fore.RESET}")
+
 
 def load_commands():
     """
@@ -38,6 +63,8 @@ def print_welcome_screen():
     print(f"{Fore.CYAN}└{'─'*50}┘")
 
 def main():
+    check_for_updates()
+
     load_commands()
     print_welcome_screen()
 

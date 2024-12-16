@@ -15,6 +15,6 @@ def run(args):
 
 def complete(text):
     """
-    Auto-completion for the 'update' command.
+    Auto-completion for the 'updateall' command.
     """
     return []

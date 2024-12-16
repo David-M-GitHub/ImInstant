@@ -4,27 +4,6 @@ from colorama import Fore
 
 PROGRAMS = {}
 
-def list_apps():
-    """
-    Fetches the list of installed applications using 'winget list'.
-    Populates the PROGRAMS dictionary with app IDs as keys and their names as values.
-    """
-    global PROGRAMS
-    try:
-        # Execute 'winget list' and capture the output
-        output = subprocess.check_output("winget list", shell=True, text=True)
-        
-        # Parse the output to extract program IDs
-        for line in output.splitlines()[1:]:  # Skip the header line
-            parts = line.split()
-            if len(parts) >= 2:
-                app_id = parts[0]
-                app_name = " ".join(parts[1:])
-                PROGRAMS[app_id] = app_name
-
-    except subprocess.CalledProcessError as e:
-        print(f"{Fore.RED}Error while fetching installed applications: {e}{Fore.RESET}")
-
 def run(args):
     """
     Uninstalls a given application using Winget.
@@ -48,14 +27,4 @@ def run(args):
 
 
 
-def completer(text, state):
-    """
-    Provides auto-completion for uninstallable applications based on 'winget list'.
-    """
-    options = [app_id for app_id in PROGRAMS.keys() if app_id.startswith(text)]
-    if state < len(options):
-        return options[state]
-    return None
-
-# Initialize the program list for autocomplete
-list_apps()
+# TODO: Implement auto-completion for the 'uninstall' command.
