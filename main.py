@@ -56,7 +56,6 @@ def print_welcome_screen():
     """
     Prints the welcome screen with a stylish Unicode design.
     """
-    os.system('cls' if os.name == 'nt' else 'clear')  # Clear terminal screen
 
     welcome_screen = (
         "\n"
