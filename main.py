@@ -76,9 +76,8 @@ def print_welcome_screen():
 def main():
 
     load_commands()
-    print_welcome_screen()
 
-    
+    print_welcome_screen()
     check_for_updates()
 
     # Register default command completer
@@ -95,17 +94,25 @@ def main():
         if not user_input:
             continue
 
-        parts = user_input.split()
-        command = parts[0]
-        args = parts[1:]
+        run_command(user_input)
 
-        if command in commands:
-            try:
-                commands[command].run(args)
-            except Exception as e:
-                print(f"{Fore.RED}Error while executing '{command}': {e}")
-        else:
-            print(f"{Fore.RED}Unknown command: {command}. Type 'help' to see available commands.")
+def run_command(command, *args):
+    """
+    Runs a command with the specified arguments.
+    """
+    parts = command.split()
+    commandstart = parts[0]
+    args = parts[1:]
+
+    print(f"{commands.keys()}")
+
+    if commandstart in commands:
+        try:
+            commands[commandstart].run(args)
+        except Exception as e:
+            print(f"{Fore.RED}Error while executing '{commandstart}': {e}")
+    else:
+        print(f"{Fore.RED}Unknown command: {commandstart}. Type 'help' to see available commands.")
 
 if __name__ == "__main__":
     main()
