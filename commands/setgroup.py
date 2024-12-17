@@ -40,6 +40,7 @@ def run(args):
     else:
         print(f"{Fore.RED}Failed to add '{user}' to group '{group}'. Please check your permissions.{Fore.RESET}")
 
+
 def complete(text):
     """
     Auto-complete for the 'setgroup' command.
