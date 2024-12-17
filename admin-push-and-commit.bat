@@ -10,7 +10,7 @@ REM Commit the changes with the provided message
 git commit -m "%commitMessage%"
 
 REM Push the changes to the remote repository
-git push origin main
+git push origin master
 
 REM Pause the script to see the output
 pause

@@ -10,4 +10,4 @@ git add .
 git commit -m "$commit_message"
 
 # Push the changes to the remote repository
-git push origin main
+git push origin master
