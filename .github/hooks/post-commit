@@ -1,5 +1,5 @@
-d#!/bin/bash
-# Pre-commit Hook: Updates VERSION.txt from CURRENT_VERSION in version.py
+#!/bin/bash
+# Post-commit Hook: Updates VERSION.txt from CURRENT_VERSION in version.py
 
 # Lese die Version aus version.py
 VERSION=$(grep "CURRENT_VERSION" version.py | sed -E 's/.*CURRENT_VERSION *= *"([^"]+)".*/\1/')
@@ -9,5 +9,8 @@ echo "$VERSION" > VERSION.txt
 
 # Add the updated VERSION.txt to the commit
 git add VERSION.txt
+
+# Commit the updated VERSION.txt
+git commit -m "Update VERSION.txt to version $VERSION"
 
 echo "Updated VERSION.txt to version: $VERSION"
