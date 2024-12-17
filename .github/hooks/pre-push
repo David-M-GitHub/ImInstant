@@ -1,7 +1,6 @@
 #!/bin/bash
-# Post-commit Hook: Updates VERSION.txt from CURRENT_VERSION in version.py
 
-# Lese die Version aus version.py
+# Get the current version from version.py
 VERSION=$(grep "CURRENT_VERSION" version.py | sed -E 's/.*CURRENT_VERSION *= *"([^"]+)".*/\1/')
 
 # Write the version to VERSION.txt
