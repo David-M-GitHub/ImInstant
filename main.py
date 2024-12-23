@@ -104,8 +104,6 @@ def run_command(command, *args):
     commandstart = parts[0]
     args = parts[1:]
 
-    print(f"{commands.keys()}")
-
     if commandstart in commands:
         try:
             commands[commandstart].run(args)
