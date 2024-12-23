@@ -29,7 +29,7 @@ Welcome to **ImInstant**, a powerful and intuitive command-line interface for ma
 
 ```bash
 # Clone using Git
-git clone https://github.com/your-username/iminstant.git
+git clone https://github.com/David-M-GitHub/iminstant.git
 cd iminstant
 ```
 

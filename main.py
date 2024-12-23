@@ -1,5 +1,6 @@
 import os
 import importlib
+import json
 from completer import Completer
 import requests
 import sys
@@ -12,29 +13,44 @@ init(autoreset=True)
 COMMAND_DIR = "commands"
 commands = {}
 completer = Completer()
+LANGUAGE = "en"  # Default language
 
 sys.stdout = open(sys.stdout.fileno(), 'w', encoding='utf-8', buffering=1)
+
+def load_language(language):
+    """
+    Loads the language file for the specified language.
+    """
+    try:
+        with open(f"locales/{language}.json", "r", encoding="utf-8") as file:
+            return json.load(file)
+    except FileNotFoundError:
+        print(f"{Fore.RED}Error: Language file for '{language}' not found. Falling back to English.{Fore.RESET}")
+        with open("locales/en.json", "r", encoding="utf-8") as file:
+            return json.load(file)
+
+# Load the selected language
+messages = load_language(LANGUAGE)
 
 def check_for_updates():
     """
     Checks if a new version of ImInstant is available.
     """
-    print(f"{Fore.YELLOW}Checking for updates...{Fore.RESET}")
+    print(f"{Fore.YELLOW}{messages['checking_updates']}{Fore.RESET}")
     try:
         response = requests.get(UPDATE_URL, timeout=5)
         if response.status_code == 200:
             latest_version = response.text.strip()
             if latest_version != CURRENT_VERSION:
-                print(f"{Fore.GREEN}A new version of ImInstant is available: {latest_version}{Fore.RESET}")
-                print(f"{Fore.YELLOW}You are currently using version {CURRENT_VERSION}.{Fore.RESET}")
-                print(f"{Fore.CYAN}Please update ImInstant to enjoy the latest features and improvements.{Fore.RESET}")
+                print(f"{Fore.GREEN}{messages['new_version_available']}: {latest_version}{Fore.RESET}")
+                print(f"{Fore.YELLOW}{messages['current_version']}: {CURRENT_VERSION}.{Fore.RESET}")
+                print(f"{Fore.CYAN}{messages['stay_productive']}{Fore.RESET}")
             else:
-                print(f"{Fore.GREEN}You are using the latest version of ImInstant ({CURRENT_VERSION}).{Fore.RESET}")
+                print(f"{Fore.GREEN}{messages['using_latest_version']} ({CURRENT_VERSION}).{Fore.RESET}")
         else:
-            print(f"{Fore.RED}Failed to check for updates. Server returned status code {response.status_code}.{Fore.RESET}")
+            print(f"{Fore.RED}{messages['failed_check_updates']} {response.status_code}.{Fore.RESET}")
     except requests.RequestException as e:
-        print(f"{Fore.RED}Could not check for updates: {e}{Fore.RESET}")
-
+        print(f"{Fore.RED}{messages['could_not_check_updates']}: {e}{Fore.RESET}")
 
 def load_commands():
     """
@@ -60,18 +76,17 @@ def print_welcome_screen():
     welcome_screen = (
         "\n"
         f"{Fore.CYAN}┌{'─'*50}┐\n"
-        f"{Fore.CYAN}│ {Style.BRIGHT}Welcome to ImInstant Command Line Interface{Style.RESET_ALL} {Fore.CYAN}     │\n"
+        f"{Fore.CYAN}│ {Style.BRIGHT}{messages['welcome']}{Style.RESET_ALL} {Fore.CYAN}     │\n"
         f"{Fore.CYAN}├{'─'*50}┤\n"
-        f"{Fore.CYAN}│ {Fore.YELLOW}Type 'help' to see available commands.{Style.RESET_ALL} {Fore.CYAN}          │\n"
-        f"{Fore.CYAN}│ {Fore.YELLOW}Type 'exit' to leave the console.{Style.RESET_ALL} {Fore.CYAN}               │\n"
+        f"{Fore.CYAN}│ {Fore.YELLOW}{messages['type_help']}{Style.RESET_ALL} {Fore.CYAN}          │\n"
+        f"{Fore.CYAN}│ {Fore.YELLOW}{messages['type_exit']}{Style.RESET_ALL} {Fore.CYAN}               │\n"
         f"{Fore.CYAN}├{'─'*50}┤\n"
-        f"{Fore.CYAN}│ {Fore.MAGENTA}Current Version: {CURRENT_VERSION}{Style.RESET_ALL} {Fore.CYAN}                         │\n"
-        f"{Fore.CYAN}│ {Fore.GREEN}Stay productive and have fun!{Style.RESET_ALL} {Fore.CYAN}                   │\n"
+        f"{Fore.CYAN}│ {Fore.MAGENTA}{messages['current_version']}: {CURRENT_VERSION}{Style.RESET_ALL} {Fore.CYAN}                         │\n"
+        f"{Fore.CYAN}│ {Fore.GREEN}{messages['stay_productive']}{Style.RESET_ALL} {Fore.CYAN}                   │\n"
         f"{Fore.CYAN}└{'─'*50}┘"
     )
 
     print(welcome_screen)
-
 
 def main():
 
@@ -88,7 +103,7 @@ def main():
         try:
             user_input = input(f"{Fore.GREEN}iminstant> {Style.RESET_ALL}").strip()
         except (KeyboardInterrupt, EOFError):
-            print(f"\n{Fore.RED}Goodbye!{Style.RESET_ALL}")
+            print(f"\n{Fore.RED}{messages['goodbye']}{Style.RESET_ALL}")
             break
 
         if not user_input:
@@ -110,7 +125,7 @@ def run_command(command, *args):
         except Exception as e:
             print(f"{Fore.RED}Error while executing '{commandstart}': {e}")
     else:
-        print(f"{Fore.RED}Unknown command: {commandstart}. Type 'help' to see available commands.")
+        print(f"{Fore.RED}{messages['unknown_command']}: {commandstart}. {messages['type_help']}{Fore.RESET}")
 
 if __name__ == "__main__":
     main()

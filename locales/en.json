@@ -1,0 +1,21 @@
+{
+    "welcome": "Welcome to ImInstant Command Line Interface",
+    "type_help": "Type 'help' to see available commands.",
+    "type_exit": "Type 'exit' to leave the console.",
+    "current_version": "Current Version",
+    "stay_productive": "Stay productive and have fun!",
+    "checking_updates": "Checking for updates...",
+    "new_version_available": "A new version of ImInstant is available",
+    "using_latest_version": "You are using the latest version of ImInstant",
+    "failed_check_updates": "Failed to check for updates. Server returned status code",
+    "could_not_check_updates": "Could not check for updates",
+    "goodbye": "Goodbye!",
+    "unknown_command": "Unknown command:",
+    "set_computer_name_description": "Sets the computer name to the specified name.",
+    "set_computer_name_usage": "setcomputername <new_name>",
+    "error_specify_computer_name": "Error: Please specify the new computer name.",
+    "attempting_set_computer_name": "Attempting to set computer name to",
+    "success_set_computer_name": "Successfully set computer name to",
+    "failed_set_computer_name": "Failed to set computer name. Please check your permissions.",
+    "unexpected_error": "An unexpected error occurred"
+}

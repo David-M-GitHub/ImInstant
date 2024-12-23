@@ -1,0 +1,21 @@
+{
+    "welcome": "Willkommen bei der ImInstant",
+    "type_help": "Geben Sie 'help' ein, um verfügbare Befehle anzuzeigen.",
+    "type_exit": "Geben Sie 'exit' ein, um die Konsole zu verlassen.",
+    "current_version": "Aktuelle Version",
+    "stay_productive": "Bleiben Sie produktiv und haben Sie Spaß!",
+    "checking_updates": "Überprüfen auf Updates...",
+    "new_version_available": "Eine neue Version von ImInstant ist verfügbar",
+    "using_latest_version": "Sie verwenden die neueste Version von ImInstant",
+    "failed_check_updates": "Fehler beim Überprüfen auf Updates. Server hat den Statuscode zurückgegeben",
+    "could_not_check_updates": "Konnte nicht auf Updates überprüfen",
+    "goodbye": "Auf Wiedersehen!",
+    "unknown_command": "Unbekannter Befehl: ",
+    "set_computer_name_description": "Setzt den Computernamen auf den angegebenen Namen.",
+    "set_computer_name_usage": "setcomputername <neuer_name>",
+    "error_specify_computer_name": "Fehler: Bitte geben Sie den neuen Computernamen an.",
+    "attempting_set_computer_name": "Versuche, den Computernamen auf",
+    "success_set_computer_name": "Der Computername wurde erfolgreich auf",
+    "failed_set_computer_name": "Fehler beim Setzen des Computernamens. Bitte überprüfen Sie Ihre Berechtigungen.",
+    "unexpected_error": "Ein unerwarteter Fehler ist aufgetreten"
+}
