@@ -1,1 +1,1 @@
-b0.2.8
+CURRENT_VERSION = None CURRENT_VERSION = file.read().strip()
